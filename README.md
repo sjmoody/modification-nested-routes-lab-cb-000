@@ -1,3 +1,29 @@
+Testing
+rspec spec/controllers/artists_controller_spec.rb
+rspec spec/controllers/songs_controller_spec.rb
+rspec spec/routing/artists_routing_spec.rb
+rspec spec/helpers/artists_helper_spec.rb
+rspec spec/models/song_spec.rb
+rspec spec/features/artists_spec.rb
+rspec spec/features/songs_spec.rb
+
+
+Gameplan:
+1. create new song records through an artist
+  [x]a. update nested resources to include only new children
+  [x]b. update songs_controller#new to handle the artist_id parameter
+  c. in artists/show template, add a link to nested new song page for that artist(assuming same tests as readme)
+  d. add hidden field for artist_id in the songs/_form.html.erb_ partial
+  e. update strong params to support :artist_id in songs_controller
+2. Editing song as a nested resource
+  * Allow edit action in nested route
+  * Update our song show view to give nested link to edit song for the artist (if in spec)
+3. Create helper to display drop-down list of artists if someone edits song directly via /songs/id/edit; only display the artists name if they are editing through nested routing.  Helper method name is artist_select
+4. Validate new songs created use valid artists otherwise redirect to /artists
+5. validate that songs edited via nested routing have a valid artist; otherwise redirect to /artists
+6. valudate the songs edited are in the artist's songs collection; otherwise redirect to /artists/id/songs
+
+
 # Modifying Nested Resources Lab
 
 ## Objectives
